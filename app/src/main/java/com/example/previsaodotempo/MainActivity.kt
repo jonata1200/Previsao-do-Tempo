@@ -23,12 +23,14 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.gson.JsonObject
+import com.google.gson.internal.GsonBuildConfig
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.text.DecimalFormat
+import java.util.Properties
 
 class MainActivity : AppCompatActivity(), OnMapReadyCallback {
 
@@ -71,7 +73,7 @@ class MainActivity : AppCompatActivity(), OnMapReadyCallback {
                     // Use as coordenadas de latitude e longitude conforme necessário
 
                     var localizacao = LatLng(latitude, longitude)
-                    mMap.addMarker(MarkerOptions().position(localizacao).title("Localização atual"))
+                    mMap.addMarker(MarkerOptions().position(localizacao))
                     mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(localizacao, 18f))
 
                     previsaoTempo(latitude, longitude)
